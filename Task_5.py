@@ -19,23 +19,26 @@ import json
 
 
 def menu():
-    choice = input("""
-    What exchange rate do you want to record:
-    1 for USD - UAH
-    2 for EUR - UAH
-    3 for EXIT
-    4 to delete database\n""")
-
     while True:
+        choice = input("""
+        What do you want to do with database:
+        1 to create database
+        2 record exchange rate from USD into UAH
+        3 record exchange rate from EUR into UAH
+        4 to delete database
+        5 for EXIT\n""")
+
         match choice:
             case '1':
-                db_insert("USD")
+                db_creation()
             case '2':
-                db_insert("EUR")
+                db_insert("USD")
             case '3':
-                break
+                db_insert("EUR")
             case '4':
                 db_deletion()
+            case '5':
+                break
             case _:
                 continue
 
